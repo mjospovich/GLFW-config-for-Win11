@@ -40,5 +40,5 @@
 - `F5` to compile, debug, and run the project.
 - `Ctrl + F5` to run without debugging.
 
-### MacOS
+## MacOS
 To do this on MacOS visit this ![Github Repository](https://github.com/abotica/GLFW_mac_config/tree/main)
