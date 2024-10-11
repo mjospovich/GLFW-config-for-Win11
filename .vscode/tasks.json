@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-glad",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "${workspaceFolder}/src/glad.c",
+                "-c",
+                "-o", "${workspaceFolder}/build/glad.o",
+                "-I${workspaceFolder}/include"
+            ],
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile glad.c as C code"
+        },
+        {
+            "label": "build-cpp",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-g",
+                "-I${workspaceFolder}/include",
+                "-DGLFW_INCLUDE_NONE",     
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/build/glad.o",
+                "-L${workspaceFolder}/lib",
+                "-lglfw3dll",              
+                "-lopengl32",              
+                "-lgdi32",               
+                "-o", "${workspaceFolder}/build/main.exe"
+            ],
+            "dependsOn": "build-glad",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile and link C++ files for dynamic linking on Windows"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "del",
+            "args": [
+                "${workspaceFolder}/build/main.exe",
+                "${workspaceFolder}/build/glad.o"
+            ],
+            "group": "build",
+            "detail": "Clean up the executable and object files"
+        }
+    ]
+}

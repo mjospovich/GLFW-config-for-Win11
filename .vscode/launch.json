@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Compile and Run",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/build/main.exe", 
+          "args": [],  
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}/build", 
+          "environment": [],
+          "externalConsole": true,
+          "MIMode": "gdb",
+          "miDebuggerPath": "gdb",
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build-cpp",
+          "internalConsoleOptions": "neverOpen",
+          "miDebuggerArgs": "",
+          "targetArchitecture": "x86",
+          "logging": {
+              "trace": false,
+              "traceResponse": false,
+              "engineLogging": false,
+              "programOutput": true,
+              "exceptions": true,
+              "moduleLoad": true,
+              "threadExit": true
+          }
+      }
+  ]
+}
